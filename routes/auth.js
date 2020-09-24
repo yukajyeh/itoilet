@@ -4,33 +4,26 @@ const User = require('../models/user-model')
 const mongoose = require('mongoose')
 const bcryptjs = require('bcryptjs');
 const saltRounds = 10;
- 
+const checkLogin = require('../configs/route-guard');
 
-router.get('/signup', (req, res) => {
+
+//create new user 
+router.get('/auth/signup', (req, res) => {
   res.render('signup');
 });
 
-router.post('/signup', (req, res, next) => {
+router.post('/auth/signup', (req, res, next) => {
   const {username, email, password} = req.body
   res.render('signup')
-  console.log(req.body)
 
   if (!username || !email || !password) {
-    res.render('signup', { errorMessage: 'All fields are mandatory. Please provide your username, email and password.' });
-    return;
-  }
-
-  const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
-  if (!regex.test(password)) {
-    res
-      .status(500)
-      .render('/signup', { errorMessage: 'Password needs to have at least 6 chars and must contain at least one number, one lowercase and one uppercase letter.' });
-    return;
+    res.render('signup',{errorMessage:'All fields required'});
+    return
   }
 
   bcryptjs
   .genSalt(saltRounds)
-  .then(saltsalt => bcryptjs.hash(password, salt))
+  .then(salt => bcryptjs.hash(password, salt))
   .then(hashedPassword => {
     return User.create({
       username,
@@ -38,23 +31,62 @@ router.post('/signup', (req, res, next) => {
       passwordHash: hashedPassword
     });
   })
-  .then(userFromDB => {
-    console.log('Newly created user is: ', userFromDB);
-    res.redirect('/signup');
+  .then(user => {
+    console.log('New user is: ', user);
   })
 
-  .catch(error => {
-    if (error instanceof mongoose.Error.ValidationError) {
-      res.status(500).render('/signup', { errorMessage: error.message });
-    } else if (error.code === 11000) {
-      res.status(500).render('/signup', {
-        errorMessage: 'Username need to be unique. Either username or email is already used.'
-      });
-    } else {
-      next(error);
-    }
-  });
-  
+  .catch(e => {
+   console.log(e)
+}) 
 })
+
+//LOGIN 
+router.post('/auth/login',(req, res, next) => {
+  const { username, password } = req.body
+
+  let currentUser
+
+  User.findOne({username})
+  .then(user => {
+    if(user){
+      currentUser = user
+      return bcryptjs.compare(password, user.passwordHash)
+    }
+  })
+
+  .then(result => {
+    if(!result){
+      res.render('index', {errorMessage:'Login unsuccessful'})
+    } else{
+      req.session.user = currentUser
+      res.redirect('/main')
+    }
+  })
+  .catch(e => console.log(e))
+})
+
+//AFTER-LOGIN UNLOCK THE MAP
+router.get('/main', checkLogin, (req, res)=> {
+  const user = req.session.user
+  res.render('main', user)
+})
+
+
+//USER PROFILE
+router.get('/auth/profile', checkLogin, (req, res) => {
+  const user = req.session.user
+  res.render('user-profile', user)
+})
+
+//LOGOUT
+router.get('/auth/logout', (req, res) => {
+  req.session.destroy();
+  res.redirect('/');
+});
+
+
+
+
+
  
 module.exports = router;
