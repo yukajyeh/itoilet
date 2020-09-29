@@ -89,23 +89,7 @@ router.get('/auth/add', checkLogin, (req, res) => {
   res.render('add-toilet')
 })
 
-/* document.getElementById('new-form').addEventListener('submit', function(event)
-{
-  event.preventDefault()
-  const name = document.getElementById('name').value 
-  const price = document.getElementById('price').value
-  const childFriendly = document.getElementById('child').checked ? true : false
-  const location = document.getElementById('location').value
-  const hours = document.getElementById('opening').value
 
-  const newLocation = {
-    name,
-    price,
-    childFriendly,
-    location,
-    hours
-  } 
-})*/
 
 
 

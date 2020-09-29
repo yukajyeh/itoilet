@@ -1,15 +1,15 @@
+<p><a href='/main'>Return to Main Map</a></p>
 <h1>Add a New Location</h1>
-<form action='/post-form' method='POST' enctype="multipart/form-data" id='new-form'>
+<form action='/toilets/api' method='POST' id='new-form'>
 
-  <label for='pic'>Photo</label>
-  <input type='file' name='pic' id='pic'/>
+ {{!--  <label for='pic'>Photo</label>
+  <input type='file' name='pic' id='pic'/> --}}
 
   <label for='name'>Location Name</label>
   <input type='text' name='name' id='name'/>
 
   <label for='price'>Price Per Use</label>
   <input type='text' name='price' id='price'/>
-
 
   <label for='child'>Child Friendly</label>
   <input type='checkbox' name='child' id='child'/>
@@ -24,4 +24,12 @@
 
   </form>
 
-<p><a href='/main'>Return to Main Map</a></p>
+<div>
+{{name}}
+{{price}}
+{{childFriendly}}
+{{location}}
+{{openings_time}}
+</div>
+
+

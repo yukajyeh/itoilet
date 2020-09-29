@@ -64,5 +64,4 @@ const auth = require('./routes/auth')
 app.use('/', auth)
 
 
-
 module.exports = app;
