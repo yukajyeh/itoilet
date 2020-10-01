@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const { Schema, model } = mongoose;
 
 const toilet = new Schema({
-    location_photo:{
+    imageUrl:{
         type: String
     },
 

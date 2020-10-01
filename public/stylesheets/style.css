@@ -8,9 +8,26 @@ h1,h2,h3{
   color:white;
 }
 
+label{
+  color:white;
+}
+
 a {
   color:white; 
   text-decoration: none;
+}
+
+#logo {
+  width:30vw;
+  margin: 5px 10px;
+}
+
+#George-user{
+  width:10vw;
+}
+
+#Magnificent{
+  width: 10vw;
 }
 
 #map {

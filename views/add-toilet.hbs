@@ -1,9 +1,11 @@
 <p><a href='/main'>Return to Main Map</a></p>
+<img src='/images/George.gif' id='Magnificent' alt='Magnificent-Facilities'/>
 <h1>Add a New Location</h1>
-<form action='/toilets/api' method='POST' id='new-form'>
 
- {{!--  <label for='pic'>Photo</label>
-  <input type='file' name='pic' id='pic'/> --}}
+<form action='/toilets/api' method='POST' id='new-form' enctype="multipart/form-data">
+
+  <label for ='photo'>Location Photo</label>
+  <input type='file' name='pic' id='pic'/> 
 
   <label for='name'>Location Name</label>
   <input type='text' name='name' id='name'/>
@@ -14,22 +16,23 @@
   <label for='child'>Child Friendly</label>
   <input type='checkbox' name='child' id='child'/>
 
-  <label for='location'>Where</label>
+  <label for='location'>Where</label> 
   <input type='text' name='location' id='location'/>
 
   <label for='opening'>Opening Hours</label>
   <input type='text' name='opening' id='opening'/>
   
-  <button type='submit'>Submit this location</button>
+  <button type='submit'>Post this location</button>
 
   </form>
 
 <div>
-{{name}}
-{{price}}
-{{childFriendly}}
-{{location}}
-{{openings_time}}
+<p>{{location_name}}</p>
+<p>{{price_per_use}}</p>
+<p>{{child_friendly}}</p>
+<p>{{openings_time}}</p>
 </div>
+
+
 
 

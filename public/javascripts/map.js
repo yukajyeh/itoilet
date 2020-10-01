@@ -1,7 +1,7 @@
 //to get Toilet Data
 function getToilets() {
   return axios
-  .get('/toilets/api')
+  .get('/toilets')
 }
 
 async function initMap() {
@@ -34,26 +34,3 @@ initMap()
 
 
 
-/* document.getElementById('new-form').addEventListener('submit', function(event)
-{
-  event.preventDefault()
-  const name = document.getElementById('name').value 
-  const price = document.getElementById('price').value
-  const childFriendly = document.getElementById('child').checked ? true : false
-  const location = document.getElementById('location').value
-  const hours = document.getElementById('opening').value
-
-  const newLocation = {
-    name,
-    price,
-    childFriendly,
-    location,
-    hours
-  } 
-})
-
-toiletAPI
-.createOneRegister(newLocation)
-.then(update => {
-  console.log(update)
-})  */
