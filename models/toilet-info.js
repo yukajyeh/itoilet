@@ -27,9 +27,7 @@ const toilet = new Schema({
         type:String
     },
 
-    note:{
-        type:String
-    },
+    comments: Array,
 
     uploader:{
         type:Schema.ObjectId, ref:'user-model'

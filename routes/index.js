@@ -22,10 +22,10 @@ router.get('/toilets',(req, res, next) => {
   })
 })
 
-
 //upload new toilet info
 router.post('/toilets/api', uploadCloud.single('pic'), async (req, res) => {
  const { name, price, child, location, opening } = req.body
+
 
  const geoGoogle = `https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=AIzaSyBoLQ3grbW1KRos1zO_9DaKxsZs7I8y7AM`
   
@@ -33,6 +33,7 @@ router.post('/toilets/api', uploadCloud.single('pic'), async (req, res) => {
 
  const result = await Axios.get(geoGoogle)
  
+
   let toiletLocation = result.data.results
   let lng = toiletLocation[0].geometry.location.lng
   let lat = toiletLocation[0].geometry.location.lat
@@ -51,7 +52,8 @@ router.post('/toilets/api', uploadCloud.single('pic'), async (req, res) => {
     openings_time: opening
   } 
 
-    res.render('confirm-toilet', newToilet)
+  await Toilet.create(newToilet)
+  res.render('confirm-toilet', newToilet)
 
 } catch(e){
 
@@ -60,7 +62,29 @@ router.post('/toilets/api', uploadCloud.single('pic'), async (req, res) => {
 }
 })
 
+//Display a Toilet Info
+router.get('/toilets/:id', checkLogin, (req, res, next) => {
+  const toiletId = req.params.id
+  Toilet.findById(toiletId)
+  .then(info => {
+    res.render('toilet-info',info)
+  })
+  .catch((error) => {
+    console.log(error)
+  })
+}
+)
 
+router.post('/toilets/comments', (req, res, next) => {
+  const {comments, toiletId} = req.body
+  Toilet.findByIdAndUpdate({_id:toiletId},{$push: {comments}})
+  .then(()=> {
+    res.redirect('/toilets/' + toiletId)
+  })
+  .catch((error)=> {
+    console.log(error)
+  })
+})
 
 
 

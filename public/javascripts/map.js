@@ -5,9 +5,9 @@ function getToilets() {
 }
 
 async function initMap() {
-  var myLatLng = {lat: 52.3569396, lng: 4.859902};
+  const myLatLng = {lat: 52.3569396, lng: 4.859902};
 
-  var map = new google.maps.Map(document.getElementById('map'), {
+  const map = new google.maps.Map(document.getElementById('map'), {
     zoom: 13,
     center: myLatLng
   });
@@ -15,6 +15,7 @@ async function initMap() {
   const response = await getToilets()
   const toilets = response.data
   var infowindow = new google.maps.InfoWindow();
+
 
   toilets.forEach(toilet => {
     var marker = new google.maps.Marker({
@@ -25,11 +26,46 @@ async function initMap() {
       return function() {
         infowindow.setContent(toilet.location_name);
         infowindow.open(map, marker);
+        const infoError = toilet.openings_time ? toilet.openings_time : 'x'
+        const friendly = toilet.child_friendly == true ? "Yes" : "No"
+        let commentsStr = ''
+        
+        if(toilet.comments && toilet.comments.length > 0){
+        toilet.comments.forEach(comment => {
+          commentsStr+= `
+          <p>"${comment}"</p>
+          `
+        })
+        }
+
+        let str = ''
+        str+= `
+        <div id="toilet-info">
+              <div class='toilet-photo'><img src='${toilet.imageUrl}' alt='toilet-photo'></div>
+              <div class="name">Location Name: ${toilet.location_name}</div>
+              <div class='price'> Cost per Visit: ${toilet.price_per_use}</div>
+              <div class='child-friendly'> Is it Child Friendly? ${friendly}</div>
+              <div class='time'> Opening Time: ${infoError} </div>
+              <a href='/toilets/${toilet._id}'>Make a Comment</a>
+              <div class='comments'>
+              <h4>Reviews</h4>
+              ${commentsStr}
+               </div>
+        </div>
+        `
+        document.getElementById('info-container').innerHTML= str
       }
     })(marker));
   })
 }
+
+function initialize() {
+  var input = document.getElementById('location');
+  new google.maps.places.Autocomplete(input);
+}
+
 initMap()
+google.maps.event.addDomListener(window, 'load', initialize);
 
 
 

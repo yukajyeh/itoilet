@@ -28,7 +28,7 @@ const toilets = [
         child_friendly:false,
         location:{
             type:'Point',
-            coordinates:[4.88422, 52.343586]
+            coordinates:[4.883081, 52.363778]
         },
         openings_time:'24 hours'
     },
