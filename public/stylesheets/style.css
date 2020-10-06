@@ -28,14 +28,23 @@ a {
 }
 
 #George-user{
-  width:15vw;
+  width:12vw;
 }
 
 #Magnificent{
   width: 10vw;
+  margin:5px auto;
 }
 
+#kremer-login{
+  width:20vw;
+  margin: 10px auto;
+}
 
+#toilet-photo{
+  width:25vw;
+  margin:5px auto;
+}
 
 /* main page */
  #map {
@@ -48,8 +57,9 @@ a {
     display:flex;
   }
  
-#toilet-info{
+.toilet-box{
   color:white;
+  margin:5px auto;
 }
 
 .nav-item{
@@ -64,21 +74,42 @@ a {
   margin-right:15px;
 }
 
-.toilet-photo img{
-  width:30vw;
-  margin:5px auto;
+#save-button {
+  background-color:black;
+  color:white;
+}
+
+#comment-button{
+  background-color:black;
+  margin: 10px auto;
 }
 
 /* add-toilet page */
- #form{
+#header-add-toilet{
   display:flex;
   flex-direction:column;
-  width: 50vw;
-  color:white;
-} 
+  align-items:center;
+  left:50%;
+}
 
-.pic{
-  width:30vw
+#new-form{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  left:50%;
+  width:100%;
+}
+
+#new-form label,input{
+  margin:5px auto;
+}
+
+#new-form button{
+  margin: 5px auto;
+}
+
+.pic {
+  width:15%;
 }
 
 /*display a toilet info*/
@@ -86,6 +117,54 @@ ul,li{
   color:white;
 }
 
+/*oops-page*/
+#non-login {
+margin: 50px auto;
+width:50%;
+display:flex;
+flex-direction:column;
+align-items:center;
+}
 
+#non-login a{
+ color:black;
+}
 
+/*sign-up-page*/
+#form {
+  margin: 20px auto;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  left:50%;
+}
 
+#form form {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+#create-submit-button{
+  margin:15px auto;
+}
+
+#sign-up-note {
+  width:40%;
+  margin: 10px auto;
+}
+
+/*user-page*/
+#user-profile {
+  margin: 50px auto;
+  width:50%;
+  outline-style:double;
+  outline-color:white;
+  align-items: center;
+  display:flex;
+  flex-direction:column;
+}
+
+#user-profile h2, h3, p{
+  margin: 10px auto;
+}

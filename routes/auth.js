@@ -14,7 +14,7 @@ router.get('/auth/signup', (req, res) => {
 
 router.post('/auth/signup', (req, res, next) => {
   const {username, email, password} = req.body
-  res.render('signup')
+  res.redirect('/')
 
   if (!username || !email || !password) {
     res.render('signup',{errorMessage:'All fields required'});

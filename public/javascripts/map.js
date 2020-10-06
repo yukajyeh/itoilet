@@ -38,15 +38,24 @@ async function initMap() {
         })
         }
 
+        let imageStr=''
+        if(toilet.imageUrl){
+          imageStr+= `
+          <img id='toilet-photo' src='${toilet.imageUrl}' alt='toilet-photo'>
+          `
+        }
+
         let str = ''
         str+= `
-        <div id="toilet-info">
-              <div class='toilet-photo'><img src='${toilet.imageUrl}' alt='toilet-photo'></div>
-              <div class="name">Location Name: ${toilet.location_name}</div>
-              <div class='price'> Cost per Visit: ${toilet.price_per_use}</div>
-              <div class='child-friendly'> Is it Child Friendly? ${friendly}</div>
-              <div class='time'> Opening Time: ${infoError} </div>
-              <a href='/toilets/${toilet._id}'>Make a Comment</a>
+          <div class='toilet-box'>
+              <div id="toilet-info">${imageStr}</div>
+              <div class='toilet-photo'>
+              <div class="name"> 🚽 Location Name: ${toilet.location_name}</div>
+              <div class='price'> 🚽 Cost per Visit: ${toilet.price_per_use}</div>
+              <div class='child-friendly'> 🚽 Is it Child Friendly? ${friendly}</div>
+              <div class='time'> 🚽 Opening Time: ${infoError} </div>
+              <button id='comment-button'><a href='/toilets/${toilet._id}'>Make a Comment</a></button>
+              <button id='save-button'>Save as my Favorite</button>
               <div class='comments'>
               <h4>Reviews</h4>
               ${commentsStr}

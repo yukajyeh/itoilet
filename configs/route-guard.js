@@ -4,7 +4,7 @@ const checkLogin = (req, res, next) => {
         next()
     } else {
       req.session.error = 'User Only'
-      res.redirect('/');
+      res.render('non-login');
     }
   };
   module.exports = checkLogin

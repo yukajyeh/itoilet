@@ -8,7 +8,12 @@ const checkLogin = require('../configs/route-guard');
 
 /* GET home page */
 router.get('/', (req, res, next) => {
-  res.render('index');
+
+  if (req.session.user){
+    res.render('main')
+  } else {
+    res.render('index')
+  }
 });
 
 //load toilet API Information
@@ -41,7 +46,6 @@ router.post('/toilets/api', uploadCloud.single('pic'), async (req, res) => {
   let childFriendly = child ? true : false
  
   let newToilet= {
-    imageUrl: req.file.path,
     location_name: name, 
     price_per_use: price,
     child_friendly: childFriendly,
@@ -51,6 +55,10 @@ router.post('/toilets/api', uploadCloud.single('pic'), async (req, res) => {
   },
     openings_time: opening
   } 
+
+  if(req.file){
+    newToilet.imageUrl = req.file.path
+  }
 
   await Toilet.create(newToilet)
   res.render('confirm-toilet', newToilet)
