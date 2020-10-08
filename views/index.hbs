@@ -1,18 +1,27 @@
-<img src='images/Logo.png' alt='logo' id='logo'/>
-<h1><i>Magnificent Facilities!</i></h1>
+<div id='index-info'>
+<img src='/images/Logo.png' alt='logo' id='logo'/>
+<h2><i>🇳🇱 Magnificent Facilities!</i></h2>
 <!--<h1>{{title}}</h1>-->
-<h2>Login</h2>
-    <form action="/auth/login" method="POST">
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username" placeholder=""/>
+<div id='auth'>
+    <div class='login'> 
+        <h3>Login</h3>
+            <form action="/auth/login" method="POST">
+                <label for="username"><p>Username</p></label>
+                <input type="text" id="username" name="username" placeholder=""/>
 
-        <label for="input-password">Password</label>
-        <input type="password" name="password" id="input-password" placeholder="" autocomplete="true"/>
+                <label for="input-password"><p>Password</p></label>
+                <input type="password" name="password" id="input-password" placeholder="" autocomplete="true"/>
 
-        <button type="submit">Login</button>
-         {{#if errorMessage}}
-            {{errorMessage}}
-         {{/if}}
+                <button type="submit" id='login-btn'>Login</button>
+                {{#if errorMessage}}
+                   <p> {{errorMessage}} </p>
+                {{/if}}
+        
+        <h4><a href='/auth/signup'>Sign Up</a></h4> 
+        
+        <p><a href='https://youtu.be/JYVBRQ7t46g' target="_blank">Wait, What is this about?</a></p>
+    </div>
+</div>
 
-<h2><a href='/auth/signup'>Sign Up</a></h2>
-<footer></footer>
+<footer id='main-footer'>2020 BY Y_Y ©</footer>
+

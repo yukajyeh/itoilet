@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+
 body {
   background-color:#4169E1;
   font-family: 'Architects Daughter', cursive;
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🌟</text></svg>") 16 0,auto; 
 }
 
 h1,h2,h3{
@@ -23,8 +25,7 @@ a {
 
 /* images */
 #logo {
-  width:30vw;
-  margin: 5px 10px;
+  width:35vw;
 }
 
 #George-user{
@@ -32,6 +33,11 @@ a {
 }
 
 #Magnificent{
+  width: 10vw;
+  margin:5px auto;
+}
+
+#george-wink{
   width: 10vw;
   margin:5px auto;
 }
@@ -46,24 +52,118 @@ a {
   margin:5px auto;
 }
 
+/*index page */
+#index-info{
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+  margin:10vh auto;
+}
+
+#index-info h2{
+  margin-top:5px;
+  transform: all .2s ease-in-out;
+}
+
+#index-info h2:hover{
+  transform:scale(1.8);
+}
+
+#auth{
+  display:flex;
+  flex-direction:row;
+  justify-content:center;
+  margin:4px auto;
+}
+
+.login{
+  display:flex;
+  flex-direction:column;
+  width:30%;
+  text-align:center;
+}
+
+.login h3{
+  margin-top:5px;
+}
+
+.login form{
+  position:relative;
+  bottom:30px;
+}
+
+.login form label{
+  position:relative;
+  top:20px;
+}
+
+.login input{
+  width:185px;
+}
+
+.login h4{
+  margin:5px;
+  font-weight:bold;
+}
+
+#main-footer{
+  width:100%;
+  display:flex;
+  flex-direction:center;
+  justify-content:center;
+  color:white;
+  background-color:#89cff0;
+}
+
+#login-btn {
+  width:90px;
+  margin: 15px auto;
+}
+
+.login p{
+  margin-top:15px;
+}
+
+/*oops-page*/
+#non-login {
+  margin: 50px auto;
+  width:50%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  }
+  
+
 /* main page */
  #map {
-    width:70vw;
-    height: 100vh;
+    width:60vw;
+    height: 93vh;
     margin-right:40px;
+    margin-top:5px;
+    margin-bottom:5px;
   }
 
 .map-page-container{
     display:flex;
   }
- 
-.toilet-box{
-  color:white;
-  margin:5px auto;
-}
 
+nav{
+    height:7vh;
+
+    border-bottom: 2px solid #DCF0F7;
+    padding-bottom:3px;
+  }
+  
 .nav-item{
   list-style:none;
+  position:relative;
+  bottom:40px;
+}
+
+#map-logo{
+  width:95px;
+  margin-top:10px;
+  margin-left:10px;
 }
 
 .hide{
@@ -71,7 +171,7 @@ a {
 }
 
 .right-user-info{
-  margin-right:15px;
+ margin:15px 45px;
 }
 
 #save-button {
@@ -82,6 +182,13 @@ a {
 #comment-button{
   background-color:black;
   margin: 10px auto;
+}
+
+.toilet-box{
+  margin-top:5px;
+  color:white;
+  text-align:center;
+  position:relative;
 }
 
 /* add-toilet page */
@@ -112,23 +219,49 @@ a {
   width:15%;
 }
 
-/*display a toilet info*/
-ul,li{
-  color:white;
+/*confirm toilet page*/
+.confirm-toilet{
+  margin-top:10px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  left:50%;
 }
 
-/*oops-page*/
-#non-login {
-margin: 50px auto;
-width:50%;
-display:flex;
-flex-direction:column;
-align-items:center;
+/*display toilet detail page*/
+#a-toilet-page{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  left:50%;
+}
+
+ul,li{
+  color:white;
 }
 
 #non-login a{
  color:black;
 }
+
+#user-comments{
+  margin-top:20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  left:50%;
+}
+
+#comments input{
+  width:25vw;
+}
+
+#comments button{
+  background-color:black;
+  color:white;
+  margin-top:10px;
+}
+
 
 /*sign-up-page*/
 #form {
@@ -140,6 +273,7 @@ align-items:center;
 }
 
 #form form {
+  margin-top:10px;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -152,6 +286,12 @@ align-items:center;
 #sign-up-note {
   width:40%;
   margin: 10px auto;
+}
+
+#return-signup{
+  position:absolute;
+  left:45%;
+  text-decoration:line-through;
 }
 
 /*user-page*/

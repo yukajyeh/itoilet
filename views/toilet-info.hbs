@@ -1,21 +1,21 @@
+<div id='a-toilet-page'>
 <p><a href='/main'>Return to Main Map</a></p>
-<div>
 <img class='pic' src={{imageUrl}}>
-<p>Location Name: {{location_name}}</p>
-<p>Cost per Visit: {{price_per_use}}</p>
-<p>Is it Child Friendly?{{child_friendly}}</p>
-{{#if openings_time}}<p>Opening Time: {{openings_time}}</p>{{/if}}
+<p>🚽 Location Name: {{location_name}}</p>
+<p>🚽 Cost per Visit: {{price_per_use}}</p>
+<p>🚽 Is it Child Friendly?{{child_friendly}}</p>
+{{#if openings_time}}<p>🚽 Opening Time: {{openings_time}}</p>{{/if}}
 </div>
 <div id='comments'>
     <form action='/toilets/comments' method='POST' id='new-form'>
     <input type='text' name='toiletId' value={{_id}} hidden>
-    <label for='comments'>Comments</label>
-    <input type='text' id='comments' name='comments'>
+    <label for='comments'>Comment</label>
+    <input type='text' name='comments'>
     <button type='submit'>Send my Comments</button>
     </form>
 </div>
 <div id='user-comments'>
-    <ul>User Comments
+    <ul><h3>User Comments</h3>
          {{#each comments}}
         <li>{{this}}</li>
         {{/each}}
