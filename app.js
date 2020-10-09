@@ -13,7 +13,7 @@ const Mongostore   = require('connect-mongo')(session)
 
 
 mongoose
-  .connect('mongodb://localhost/itoilet', {useNewUrlParser: true})
+  .connect(process.env.MONGO_URI, {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })

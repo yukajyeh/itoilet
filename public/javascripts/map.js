@@ -5,7 +5,17 @@ function getToilets() {
 }
 
 async function initMap() {
-  const myLatLng = {lat: 52.3569396, lng: 4.859902};
+  let myLatLng 
+
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(p) {
+      LatLng = new google.maps.LatLng(p.coords.latitude, p.coords.longitude);
+      map.setCenter(LatLng);
+    });
+  
+  } else {
+    alert('Geo Location feature is not supported in this browser.');
+  }
 
   const map = new google.maps.Map(document.getElementById('map'), {
     zoom: 13,
