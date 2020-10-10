@@ -139,18 +139,19 @@ a {
     width:60vw;
     height: 93vh;
     margin-right:40px;
-    margin-top:5px;
-    margin-bottom:5px;
+    position:relative;
+    bottom:20px;
   }
 
 .map-page-container{
     display:flex;
+    flex-direction:left;
   }
 
 nav{
     position:relative;
-    height:7vh;
-
+    min-height:1vh;
+    padding:0 40px;
   }
   
 .nav-item{
