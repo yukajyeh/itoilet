@@ -19,10 +19,10 @@ const userSchema = new Schema({
       type: String,
       required: ['Password is required']
     }
-  }/* ,
+  },
     {
       timestamps: true
-    } */
+    } 
 )
 
 const User = mongoose.model('User',userSchema)

@@ -32,9 +32,9 @@ const toilet = new Schema({
     uploader:{
         type:Schema.ObjectId, ref:'user-model'
     }
-}/* {
+},{
     timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
-} */)
+} )
 
 
 const ToiletInfo = mongoose.model('Toilet',toilet)
