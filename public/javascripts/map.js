@@ -80,7 +80,9 @@ async function initMap() {
 
 function initialize() {
   var input = document.getElementById('location');
-  new google.maps.places.Autocomplete(input);
+  if(input){
+    new google.maps.places.Autocomplete(input)
+  }
 }
 
 initMap()
