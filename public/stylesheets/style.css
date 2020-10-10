@@ -48,7 +48,7 @@ a {
 }
 
 #toilet-photo{
-  width:25vw;
+  width:20vw;
   margin:5px auto;
 }
 
@@ -137,10 +137,11 @@ a {
 /* main page */
  #map {
     width:60vw;
-    height: 93vh;
-    margin-right:40px;
+    height: 95vh;
+    margin-right:20px;
+    margin-left:20px;
     position:relative;
-    bottom:20px;
+    bottom:25px;
   }
 
 .map-page-container{
@@ -149,15 +150,14 @@ a {
   }
 
 nav{
-    position:relative;
-    min-height:1vh;
+    
     padding:0 40px;
   }
   
 .nav-item{
   list-style:none;
   position:relative;
-  bottom:40px;
+  bottom:40px; 
 }
 
 #map-logo{
@@ -171,12 +171,13 @@ nav{
 }
 
 .right-user-info{
- margin:15px 45px;
+ margin:5px 45px;
 }
 
 #save-button {
   background-color:black;
   color:white;
+  margin-bottom:5px;
 }
 
 #comment-button{
@@ -185,7 +186,7 @@ nav{
 }
 
 .toilet-box{
-  margin-top:5px;
+  margin:10px;
   color:white;
   text-align:center;
   position:relative;

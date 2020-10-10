@@ -46,6 +46,7 @@ router.post('/toilets/api', uploadCloud.single('pic'), async (req, res) => {
   let childFriendly = child ? true : false
  
   let newToilet= {
+    
     location_name: name, 
     price_per_use: price,
     child_friendly: childFriendly,
