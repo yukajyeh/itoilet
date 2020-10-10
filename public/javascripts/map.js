@@ -5,17 +5,7 @@ function getToilets() {
 }
 
 async function initMap() {
-  let myLatLng 
-
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(p) {
-      LatLng = new google.maps.LatLng(p.coords.latitude, p.coords.longitude);
-      map.setCenter(LatLng);
-    });
-  
-  } else {
-    alert('Geo Location feature is not supported in this browser.');
-  }
+  let myLatLng = {lng:4.9041, lat:52.3676}
 
   const map = new google.maps.Map(document.getElementById('map'), {
     zoom: 13,
@@ -81,8 +71,7 @@ async function initMap() {
 function initialize() {
   var input = document.getElementById('location');
   if(input){
-    new google.maps.places.Autocomplete(input)
-  }
+    new google.maps.places.Autocomplete(input)}
 }
 
 initMap()
